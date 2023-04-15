@@ -22,11 +22,11 @@ function dateSample(str) {
     return false;
   } else {
     let numb = parseFloat(str);
-    console.log('numb=', numb);
+    //console.log('numb=', numb);
 
     let age = Math.ceil(Math.log(15/numb) / (0.693 / 5730))
 
-    console.log(age);
+    //console.log(age);
 
     if (numb > 15 || numb <= 0){
       return false;
