@@ -22,7 +22,7 @@ for(i=0; i<arrCh.length; i++){
 console.log('cnt=', cnt)*/
 
         //DreamTeam
-
+/*
 let arr = [
     '   William Alston ',
     ' Paul Benacerraf',
@@ -63,4 +63,21 @@ let arr = [
     console.log('str=', str);
 
     return str;
+  }*/
+
+        //Carbon dating
+
+let str = '12';
+
+let numb = parseFloat(str);
+console.log('numb=', numb);
+
+let age = Math.ceil(Math.log(15/numb) / (0.693 / 5730))
+
+console.log(age);
+
+if (isNaN(age) == true){
+    console.log('Nan, ret false');
+  } else {
+    console.log('res=', age);
   }
