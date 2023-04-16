@@ -127,7 +127,7 @@ if (month > 11 || month <= 2){
   }*/
 
     //Tower of Hanoi
-
+/*
 let disks = 5;
 let speed = 4074;
 
@@ -143,8 +143,37 @@ function hanoj(disks, speed){
     obj.seconds = time;
 
     console.log(obj);
-    
+
     return obj;
 }
 
-hanoj(disks, speed)
+hanoj(disks, speed)*/
+
+        //Transform array
+
+let arr = [1, 2, 3, '--discard-next', 4, 5]//, '--double-prev', 6, 7, '--discard-prev', 8, 9, '--discard-next', 10, 11]
+
+function trA(arr){
+    let arrRes = [];
+
+    for(i=0; i<arr.length; i++){
+        console.log(Object.prototype.toString.call(arr));
+        console.log('arr i=', arr[i]);
+        if (arr[i] === '--double-next'){
+            arrRes.push(arr[i+1]);
+        } else if (arr[i] === '--double-prev'){
+            arrRes.push(arr[i-1]);
+        } else if (arr[i] === '--discard-prev'){
+            arrRes.pop();
+        } else if (arr[i] === '--discard-next'){
+            i++;
+        } else {
+            arrRes.push(arr[i]);
+        }
+        console.log('arrRes iter', arrRes);
+        console.log('---');
+    }
+    console.log('arrRes =', arrRes);
+}
+
+trA(arr)
