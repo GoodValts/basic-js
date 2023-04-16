@@ -150,7 +150,7 @@ function hanoj(disks, speed){
 hanoj(disks, speed)*/
 
         //Transform array
-
+/*
 let arr = [1, 2, 3, '--discard-next', 4, 5]//, '--double-prev', 6, 7, '--discard-prev', 8, 9, '--discard-next', 10, 11]
 
 function trA(arr){
@@ -176,4 +176,38 @@ function trA(arr){
     console.log('arrRes =', arrRes);
 }
 
-trA(arr)
+trA(arr)*/
+
+        //Deepcount
+let arr = [1, 2, 3, 4, [1, 2, [1, 2, [[[]]]]], 5, [1, [[[[[[]]]]]]]]
+
+function calculateDepth(arr){
+    let cnt = 0;
+    let arrayDetector = false;
+
+    function findArr(arr){
+      arrayDetector = false
+      for(i=0; i<arr.length; i++){
+        if (Array.isArray(arr[i]) == true){
+          arrayDetector = true;
+        }
+      }
+      return arrayDetector;
+    }
+
+    do {
+      console.log('arr=', arr);
+      findArr(arr);
+      console.log('detect arr=', findArr(arr))
+      arr = arr.flat();
+      console.log('new flated arr =', arr);
+      cnt++;
+      console.log('cnt=', cnt);
+      console.log('---');
+    } while (arrayDetector == true)
+
+    console.log('deep=', cnt);
+    return cnt;
+}
+
+calculateDepth(arr)
