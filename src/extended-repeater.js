@@ -18,7 +18,7 @@ const { NotImplementedError } = require('../extensions/index.js');
 function repeater(str, options) {
 
   function checkVal(el){
-    if(el != undefined && typeof(el) != 'number'){
+    if((el != undefined || el != null) && typeof(el) != 'number'){
         return el.toString();
     } else if (el > 0 && typeof(el) === 'number'){
         return el;
@@ -31,10 +31,24 @@ function repeater(str, options) {
     }
   }
 
-  str = checkVal(str);
+  if (checkVal(str) === 1){
+    str = str.toString();
+  } else if (str === null){
+    str = 'null';
+  } else {
+    str = checkVal(str).toString();
+  }
+
   repeatTimes = checkVal(options.repeatTimes);
   separator = checkVal(options.separator);
-  addition = checkVal(options.addition);
+  if (checkVal(options.addition) === 1){
+    addition = options.addition.toString();
+  } else if (options.addition === null){
+    addition = 'null';
+  } else {
+    addition = checkVal(options.addition).toString();
+  }
+
   additionRepeatTimes = checkVal(options.additionRepeatTimes);
   additionSeparator = checkVal(options.additionSeparator);
 
